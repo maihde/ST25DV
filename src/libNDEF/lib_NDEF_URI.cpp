@@ -286,6 +286,12 @@ uint16_t NDEF::NDEF_ReadURI(sRecordInfo_t *pRecordStruct, sURI_Info *pURI)
   if (pRecordStruct->NDEF_Type == WELL_KNOWN_ABRIDGED_URI_TYPE) {
     NDEF_Parse_WellKnowType(pRecordStruct, pURI);
     status = NDEF_OK;
+  } else if (pRecordStruct->NDEF_Type == URI_SMS_TYPE) {
+    NDEF_Parse_WellKnowType(pRecordStruct, pURI);
+    status = NDEF_OK;
+  } else if (pRecordStruct->NDEF_Type == URI_GEO_TYPE) {
+    NDEF_Parse_WellKnowType(pRecordStruct, pURI);
+    status = NDEF_OK;
   } else if (pRecordStruct->NDEF_Type == SMARTPOSTER_TYPE) {
     for (RecordPosition = 0; RecordPosition < pRecordStruct->NbOfRecordInSPPayload; RecordPosition++) {
       pSPRecordStruct = pRecordStruct->SPRecordStructAdd[RecordPosition];
